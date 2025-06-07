@@ -18,11 +18,6 @@ export async function main() {
   const result = await client.chat.completions.create({
     messages: [
       { role: "user", content: "berikan aku kode python hello world" },
-      {
-        role: "assistant",
-        content:
-          'Tentu! Berikut ini adalah contoh kode Python untuk mencetak "Hello, World!":\n\n```python\nprint("Hello, World!")\n```',
-      },
     ],
     max_tokens: 800,
     temperature: 0.7,
@@ -31,8 +26,8 @@ export async function main() {
     presence_penalty: 0,
     stop: null,
   });
-
-  console.log(JSON.stringify(result, null, 2));
+  console.log("Response:", result);
+  return result.choices[0].message.content;
 }
 
 export async function GET(request) {
@@ -41,5 +36,7 @@ export async function GET(request) {
   main().catch((err) => {
     console.error("The sample encountered an error:", err);
   });
-  return NextResponse.json({ message: "Hello World" });
+  const result = await main();
+  console.log("Result:", result);
+  return NextResponse.json({ result });
 }
