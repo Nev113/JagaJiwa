@@ -2,7 +2,7 @@
 import LogoBot from "@/public/assets/bot.svg";
 import Image from "next/image";
 import sendBtn from "@/public/assets/sendBtn.svg";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 export default function ChatBotPage() {
   const [input, setInput] = useState("");
