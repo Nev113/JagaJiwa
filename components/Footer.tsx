@@ -1,5 +1,4 @@
 import logo from "@/public/assets/logo-jagajiwa.png";
-import { Span } from "next/dist/trace";
 import Image from "next/image";
 export default function Footer() {
   return (

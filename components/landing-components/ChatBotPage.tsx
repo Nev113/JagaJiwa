@@ -46,7 +46,7 @@ export default function ChatBotPage() {
       if (!reader) return;
 
       let assistantResponse = "";
-      let decoder = new TextDecoder();
+      const decoder = new TextDecoder();
 
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 

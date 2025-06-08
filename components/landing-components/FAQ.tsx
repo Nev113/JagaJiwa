@@ -62,9 +62,9 @@ export default function FAQ() {
           <p className="font-normal font-motserrat text-[14px] pt-8 p-2">
             Ya, privasi Anda adalah prioritas utama kami. Aplikasi ini tidak
             memerlukan informasi identitas pribadi seperti nama asli, email,
-            atau nomor telepon. Fitur sensitif seperti "Jurnal Suasana Hati"
-            dirancang untuk menyimpan data secara lokal di perangkat Anda, bukan
-            di server kami, demi menjamin kerahasiaan maksimal.
+            atau nomor telepon. Fitur sensitif seperti &quot;Jurnal Suasana
+            Hati&quot; dirancang untuk menyimpan data secara lokal di perangkat
+            Anda, bukan di server kami, demi menjamin kerahasiaan maksimal.
           </p>
         </div>
       </div>
