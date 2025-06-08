@@ -60,5 +60,5 @@ jobs:
         with:
           app-name: "JagaJiwa"
           slot-name: "Production"
-          package: "./jaga-jiwa"
+          package: "./"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A36A3449AC0454893ADCFC84ABC4EDB }}
