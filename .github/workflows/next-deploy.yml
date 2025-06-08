@@ -22,13 +22,10 @@ jobs:
       - name: Install dependencies and build
         run: |
           npm install
-          npm run build
-
-      - name: "Deploy to Azure Web App"
+          npm run build      - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ env.WEBAPP_NAME }}
-          slot-name: "Production"
-          publish-profile: ${{ env.APPLICATION_PUBLISH_PROFILE }}
+          app-name: JagaJiwa
+          publish-profile: ${{ secrets.APP_PUBLISH_PROFILE }}
           package: ./.next/standalone
