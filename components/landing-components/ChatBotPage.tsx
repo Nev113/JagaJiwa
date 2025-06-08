@@ -12,12 +12,6 @@ export default function ChatBotPage() {
   >([{ role: "assistant", content: "Ada Yang Bisa Saya Bantu?" }]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages]);
-
   const handleSendMessage = async (text?: string) => {
     const userMessage = text || input;
 
