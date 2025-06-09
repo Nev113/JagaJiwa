@@ -2,7 +2,7 @@ import logo from "@/public/assets/logo-jagajiwa.png";
 import Image from "next/image";
 export default function Footer() {
   return (
-    <div className="my-5 rounded-3xl ring-4 ring-zinc-600 p-4">
+    <div className="m-5 my-5 rounded-3xl ring-4 ring-zinc-600 p-4">
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-2">
           <Image src={logo} alt="Logo Jaga Jiwa" width={50} />{" "}
