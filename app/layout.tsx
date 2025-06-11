@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { lora, montserrat } from "@/public/assets/font";
 import Navbar from "@/components/Navbar";
-import favicon from "@/public/assets/favicon.ico";
 export const metadata: Metadata = {
   title: "Jaga Jiwa",
   description:
