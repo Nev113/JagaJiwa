@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BotLogo from "@/public/assets/FunctionBot.svg";
 import PointLogo from "@/public/assets/FunctionPoint.svg";
+import SearchLogo from "@/public/assets/searchlogo.svg";
 
 export default function FunctionsPage() {
   return (
@@ -32,16 +33,16 @@ export default function FunctionsPage() {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="md:max-w-[50px] max-w-[40px]">
-            <Image src={PointLogo} alt="Function Bot" width={50} height={50} />
+          <div className="md:max-w-[50px] max-w-[40px] p-2 bg-zinc-700 rounded-sm">
+            <Image src={SearchLogo} alt="Function Bot" width={20} />
           </div>
           <h1 className="font-montserrat font-semibold md:text-[14px] text-[12px]">
-            Asesmen Risiko Dini
+            Ekstensi Deteksi Dini
           </h1>
           <p className="font-lora md:text-[12px] text-[10px] font-normal md:text-center">
-            Pahami potensi risiko Anda terhadap kecanduan judi online melalui
-            serangkaian pertanyaan sederhana. Hasil asesmen bersifat pribadi,
-            rahasia, dan membantu Anda mengambil langkah pencegahan lebih awal.
+            Ektensi yang dibuat untuk membantu Anda mendeteksi keyword atau
+            website yang anda input ke Browser anda ditenagai oleh AI yang akan
+            memberikan peringatan untuk anda.
           </p>
         </div>
       </div>

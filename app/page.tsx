@@ -7,6 +7,7 @@ import FunctionsPage from "@/components/landing-components/functionPage";
 import ChatBotPage from "@/components/landing-components/ChatBotPage";
 import FAQ from "@/components/landing-components/FAQ";
 import Footer from "@/components/Footer";
+import ExtensionPath from "@/components/landing-components/ExstensionPath";
 
 export default function Home() {
   return (
@@ -63,6 +64,7 @@ export default function Home() {
       <LandingPageMenu />
       <FunctionsPage />
       <ChatBotPage />
+      <ExtensionPath />
       <FAQ />
       <div className="my-10">
         <div className="flex flex-row gap-5 justify-center items-center">
