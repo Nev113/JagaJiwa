@@ -1,6 +1,5 @@
 import Image from "next/image";
 import BotLogo from "@/public/assets/FunctionBot.svg";
-import PointLogo from "@/public/assets/FunctionPoint.svg";
 import SearchLogo from "@/public/assets/searchlogo.svg";
 
 export default function FunctionsPage() {
