@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import moduleExtension from "@/public/assets/modelExtension.png";
-import chromeWebStore from "@/public/assets/Chrome Web Store Logo.png";
-import edgeAddOns from "@/public/assets/AddOnsEdge.png";
 export default function ExtensionPath() {
   return (
     <div className="flex flex-col md:flex-row gap-5 justify-center items-center my-10">
