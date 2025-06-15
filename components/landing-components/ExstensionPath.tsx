@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import moduleExtension from "@/public/assets/modelExtension.png";
 import chromeWebStore from "@/public/assets/Chrome Web Store Logo.png";
@@ -27,15 +28,19 @@ export default function ExtensionPath() {
             Dapatkan Ekstensi ini di Store Web Browser Anda
           </p>
           <div className="flex flex-row gap-2 mt-2 *:p-2 *:px-3 *:rounded-full *:w-fit *:bg-gray-50 font-semibold text-slate-800 *:text-[12px] *:cursor-pointer">
-            <div className="flex flex-row items-center gap-1">
+            <div
+              className="flex flex-row items-center gap-1"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "extension/JagaJiwa(Exstension).zip";
+                link.download = "JagaJiwa(Extension).zip";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               {" "}
-              <Image alt="ChromeWebStore" src={chromeWebStore} width={30} />
-              Chrome Web Store
-            </div>
-            <div className="flex flex-row items-center gap-1">
-              {" "}
-              <Image alt="ChromeWebStore" src={edgeAddOns} width={30} />
-              Microsoft Edge Add-ons
+              Download Ekstensi
             </div>
           </div>
         </div>

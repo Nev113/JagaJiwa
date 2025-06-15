@@ -11,7 +11,6 @@ export default function ChatBotPage() {
     { content: string; role: "user" | "assistant" }[]
   >([{ role: "assistant", content: "Ada Yang Bisa Saya Bantu?" }]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
   const handleSendMessage = async (text?: string) => {
     const userMessage = text || input;
 
@@ -22,13 +21,33 @@ export default function ChatBotPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      let sentimentText = "";
+      try {
+        const sentimentResponse = await fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: userMessage,
+          }),
+        });
+
+        if (sentimentResponse.ok) {
+          const sentimentData = await sentimentResponse.json();
+          sentimentText = sentimentData.message || "";
+        }
+      } catch (sentimentError) {
+        console.error("Error getting sentiment:", sentimentError);
+      }
+
+      const response = await fetch("/api/qna", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          messages: [{ role: "user", content: userMessage }],
+          question: userMessage,
         }),
       });
 
@@ -36,30 +55,19 @@ export default function ChatBotPage() {
         throw new Error("Gagal mendapatkan jawaban");
       }
 
-      const reader = response.body?.getReader();
-      if (!reader) return;
+      const data = await response.json();
+      const qnaResponse =
+        data.answer || "Maaf, saya tidak dapat memahami pertanyaan Anda.";
 
-      let assistantResponse = "";
-      const decoder = new TextDecoder();
+      // Combine sentiment and QnA response
+      const assistantResponse = sentimentText
+        ? `${sentimentText} ${qnaResponse}`
+        : qnaResponse;
 
-      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value);
-        assistantResponse += chunk;
-
-        setMessages((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = {
-            role: "assistant",
-            content: assistantResponse,
-          };
-          return updated;
-        });
-      }
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: assistantResponse },
+      ]);
     } catch (error) {
       console.error("Error sending message:", error);
       setMessages((prev) => [

@@ -12,7 +12,6 @@ export default function ChatBotPage() {
   >([{ role: "assistant", content: "Ada Yang Bisa Saya Bantu?" }]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const headerChatref = useRef<HTMLDivElement>(null);
-
   const handleSendMessage = async (text?: string) => {
     const userMessage = text || input;
 
@@ -22,7 +21,28 @@ export default function ChatBotPage() {
     setInput("");
     setIsLoading(true);
     headerChatref.current?.style.setProperty("display", "none");
+
     try {
+      let sentimentText = "";
+      try {
+        const sentimentResponse = await fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: userMessage,
+          }),
+        });
+
+        if (sentimentResponse.ok) {
+          const sentimentData = await sentimentResponse.json();
+          sentimentText = sentimentData.message || "";
+        }
+      } catch (sentimentError) {
+        console.error("Error getting sentiment:", sentimentError);
+      }
+
       const response = await fetch("/api/qna", {
         method: "POST",
         headers: {
@@ -38,8 +58,12 @@ export default function ChatBotPage() {
       }
 
       const data = await response.json();
-      const assistantResponse =
+      const qnaResponse =
         data.answer || "Maaf, saya tidak dapat memahami pertanyaan Anda.";
+
+      const assistantResponse = sentimentText
+        ? `${sentimentText} ${qnaResponse}`
+        : qnaResponse;
 
       setMessages((prev) => [
         ...prev,
