@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gamble Detector</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img
+            src="./assets/logo-jagajiwa.png"
+            alt="JagaJiwa"
+            class="logo-icon"
+          />
+          <span class="logo-text">Jaga<span class="font-lora">Jiwa</span>
+        </div>
+        <button class="close-btn">✕</button>
+      </div>
+
+      <div class="status-section">
+        <div class="status-label font-montserrat">STATUS</div>
+        <div class="toggle-container">
+          <div class="toggle-switch">
+            <input type="checkbox" id="toggleEnabled" class="toggle-input" />
+            <label for="toggleEnabled" class="toggle-label">
+              <span class="toggle-slider"></span>
+              <span class="toggle-text on font-montserrat">ON</span>
+              <span class="toggle-text off font-montserrat">OFF</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button id="clearCacheBtn" class="action-btn font-montserrat">Bersihkan Cache</button>
+
+      <div class="stats-section">
+        <span class="stats-label font-montserrat">Website yang diproteksi</span>
+        <span class="stats-count font-montserrat" id="protectedCount">23</span>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

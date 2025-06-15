@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JagaJiwa Overlay Test</title>
+  </head>
+  <body>
+    <h1>JagaJiwa Overlay Test Page</h1>
+    <p>Click the button below to test the overlay functionality:</p>
+
+    <button onclick="testOverlay()">Test Gambling Site Overlay</button>
+    <button onclick="testSearchOverlay()">Test Search Query Overlay</button>
+    <button onclick="removeOverlay()">Remove Overlay</button>
+
+    <script src="config.js"></script>
+    <script src="overlay.js"></script>
+    <script>
+      // Mock chrome.runtime for testing
+      if (typeof chrome === "undefined") {
+        window.chrome = {
+          runtime: {
+            getURL: function (path) {
+              return "assets/logo-jagajiwa.png"; // Mock path
+            },
+          },
+        };
+      }
+
+      function testOverlay() {
+        const testHostname = "slot777.example.com";
+        const testUrl = "https://slot777.example.com/games";
+
+        if (window.JagaJiwaOverlay) {
+          window.JagaJiwaOverlay.showWarningOverlay(testHostname, testUrl);
+        } else {
+          alert("JagaJiwaOverlay not loaded");
+        }
+      }
+
+      function testSearchOverlay() {
+        const testHostname = "google.com";
+        const testUrl = "https://google.com/search?q=situs+judi+slot+online";
+
+        if (window.JagaJiwaOverlay) {
+          window.JagaJiwaOverlay.showWarningOverlay(testHostname, testUrl);
+        } else {
+          alert("JagaJiwaOverlay not loaded");
+        }
+      }
+
+      function removeOverlay() {
+        const overlay = document.getElementById("jaga-jiwa-warning");
+        if (overlay) {
+          overlay.remove();
+          document.body.style.overflow = "";
+        }
+      }
+
+      // Test configuration loading
+      console.log("JagaJiwa Config loaded:", window.JagaJiwaConfig);
+      console.log("JagaJiwa Overlay loaded:", window.JagaJiwaOverlay);
+    </script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      button {
+        background: #007cba;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #005a87;
+      }
+    </style>
+  </body>
+</html>

@@ -1,8 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JagaJiwa - Mental Health Support Chatbot
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project with an integrated Azure-powered chatbot for mental health support.
 
-First, run the development server:
+## Features
+
+- 🤖 Intelligent chatbot powered by Azure Language Services
+- 💭 Sentiment analysis for emotional support
+- 🎯 QnA knowledge base integration
+- 🚫 Gambling addiction detection and prevention
+- 🆘 Crisis intervention support
+- 📱 Responsive web interface
+
+## Setup
+
+1. **Clone and install dependencies:**
+
+```bash
+npm install
+```
+
+2. **Configure environment variables:**
+
+   - Copy `.env.example` to `.env.local`
+   - Fill in your Azure service credentials:
+     - `LANGUAGE_ENDPOINT`: Your Azure Language Service endpoint
+     - `LANGUAGE_KEY`: Your Azure Language Service key
+     - `QNA_PROJECT_NAME`: Your QnA project name
+     - `QNA_DEPLOYMENT_NAME`: Your QnA deployment name (usually "production")
+     - `MicrosoftAppId`: Your Bot Framework app ID (optional for web chat)
+     - `MicrosoftAppPassword`: Your Bot Framework app password (optional)
+
+3. **Run the development server:**
 
 ```bash
 npm run dev

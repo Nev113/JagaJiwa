@@ -22,15 +22,14 @@ export default function ChatBotPage() {
     setInput("");
     setIsLoading(true);
     headerChatref.current?.style.setProperty("display", "none");
-
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api/qna", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          messages: [{ role: "user", content: userMessage }],
+          question: userMessage,
         }),
       });
 
@@ -38,30 +37,14 @@ export default function ChatBotPage() {
         throw new Error("Gagal mendapatkan jawaban");
       }
 
-      const reader = response.body?.getReader();
-      if (!reader) return;
+      const data = await response.json();
+      const assistantResponse =
+        data.answer || "Maaf, saya tidak dapat memahami pertanyaan Anda.";
 
-      let assistantResponse = "";
-      const decoder = new TextDecoder();
-
-      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value);
-        assistantResponse += chunk;
-
-        setMessages((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = {
-            role: "assistant",
-            content: assistantResponse,
-          };
-          return updated;
-        });
-      }
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: assistantResponse },
+      ]);
     } catch (error) {
       console.error("Error sending message:", error);
       setMessages((prev) => [

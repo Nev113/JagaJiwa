@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.container {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 20px;
+  padding: 20px;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 50px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-lora {
+  font-family: "Lora", serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.status-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.status-label {
+  background: #c5e1f8;
+  color: #2196f3;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 200px;
+  height: 60px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  overflow: hidden;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 90px;
+  width: 92px;
+  height: 48px;
+  background: #f44336;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.toggle-input:checked + .toggle-label .toggle-slider {
+  left: 4px;
+  background: #4caf50;
+}
+
+.toggle-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.toggle-text.on {
+  left: 25px;
+  color: #666;
+}
+
+.toggle-text.off {
+  right: 25px;
+  color: white;
+}
+
+.toggle-input:checked + .toggle-label .toggle-text.on {
+  color: white;
+}
+
+.toggle-input:checked + .toggle-label .toggle-text.off {
+  color: #666;
+}
+
+.action-btn {
+  background: #9e9e9e;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 40px auto;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.action-btn:hover {
+  background: #757575;
+  transform: translateY(-2px);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+.stats-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 15px 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stats-label {
+  color: #2196f3;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stats-count {
+  background: #2196f3;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 320px) {
+  .container {
+    padding: 15px;
+  }
+
+  .toggle-switch {
+    width: 180px;
+    height: 50px;
+  }
+
+  .toggle-slider {
+    width: 82px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "JagaJiwa - Deteksi Judi Online",
+  "version": "1.0",
+  "description": "Deteksi URL bertema judi online dengan AI, beri notifikasi jika terdeteksi.",
+  "icons": {
+    "16": "assets/logoMain.png",
+    "32": "assets/logoMain.png",
+    "48": "assets/logoMain.png",
+    "128": "assets/logoMain.png"
+  },
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/logoMain.png",
+      "32": "assets/logoMain.png",
+      "48": "assets/logoMain.png",
+      "128": "assets/logoMain.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "warning.html",
+        "warning.js",
+        "overlay.js",
+        "overlay.css",
+        "config.js",
+        "assets/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

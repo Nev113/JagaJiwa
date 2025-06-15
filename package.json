@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@azure/ai-language-text": "^1.1.0",
+    "@azure/ai-text-analytics": "^5.1.0",
     "@azure/identity": "^4.10.0",
+    "axios": "^1.10.0",
+    "botbuilder": "^4.17.0-blobs1",
+    "botbuilder-ai": "^4.17.0-blobs1",
     "dotenv": "^16.5.0",
     "next": "15.3.3",
     "openai": "^5.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "yo": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
