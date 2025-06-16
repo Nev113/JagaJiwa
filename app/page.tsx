@@ -57,7 +57,7 @@ export default function Home() {
         </h1>
         <div className="md:p-3 md:px-4 p-1 px-2 ring-4 ring-red-400 bg-red-200 rounded-full font-lora text-red-800 md:text-2xl text-xl font-bold flex flex-row items-center justify-center gap-2">
           <Image src={warning} alt="Warning" sizes="70" />
-          Dari Kesenjangan Sosial
+          Dari Bahaya Judi Online
           <Image src={warning} alt="Warning" sizes="70" />
         </div>
       </div>
